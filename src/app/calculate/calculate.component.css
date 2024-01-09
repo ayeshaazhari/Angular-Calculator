@@ -1,0 +1,11 @@
+.expression {
+    overflow: scroll;
+}
+
+button {
+    width: 100%;
+}
+
+button:hover {
+    background-color: #eaeaea;
+}
