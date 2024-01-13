@@ -1,0 +1,222 @@
+<div class="container">
+  <div class="row">
+
+  <!-- Calculator -->
+  <div class="col-md-6 my-5">
+  <div class="bg-dark p-4 text-light my-5">
+      <h1 class="text-center my-4">Calculator</h1>
+
+    <div class="input-group input-group-md col-md-12 m-0 p-0">
+      <div class="col-md-12 form-control text-lg-right expression" type="text">
+        {{ input }}
+      </div>
+    </div>
+
+    <div class="row p-1 m-0">
+      <div class="col-md-6 p-1">
+        <button
+          class="btn btn-warning "
+          type="button"
+          (click)="allClear()"
+        >
+          AC
+        </button>
+      </div>
+     
+      <div class="col-md-3 p-1">
+        <button
+          class="btn btn-warning"
+          type="button"
+          (click)="removeValue()"
+        >
+          DEL
+        </button>
+      </div>
+      
+      <div class="col-md-3 p-1">
+        <button
+          class="btn btn-warning"
+          type="button"
+          (click)="pressOperator('/')"
+        >
+          /
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="row p-1 m-0">
+      <div class="col-md-3 p-1"><button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('7')"
+      >
+        7
+      </button></div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('8')"
+      >
+        8
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('9')"
+      >
+        9
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-warning "
+        type="button"
+        (click)="pressOperator('*')"
+      >
+        X
+      </button>
+      </div>
+    </div>
+    <div class="row p-1 m-0">
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('4')"
+      >
+        4
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('5')"
+      >
+        5
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('6')"
+      >
+        6
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-warning "
+        type="button"
+        (click)="pressOperator('-')"
+      >
+        -
+      </button>
+      </div>
+    </div>
+    <div class="row p-1 m-0">
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('1')"
+      >
+        1
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('2')"
+      >
+        2
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('3')"
+      >
+        3
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-warning "
+        type="button"
+        (click)="pressOperator('+')"
+      >
+        +
+      </button>
+      </div>
+    </div>
+    <div class="row p-1 m-0">
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('.')"
+      >
+        .
+      </button>
+      </div>
+      <div class="col-md-3 p-1">
+      <button
+        class="btn btn-lg btn-outline-secondary "
+        type="button"
+        (click)="pressNum('0')"
+      >
+        0
+      </button>
+      </div>
+      <div class="col-md-6 p-1">
+      <button
+        class="btn btn-lg btn-success"
+        type="button"
+        (click)="getAnswer()"
+      >
+        =
+      </button>
+      </div>
+    </div>
+   
+  </div>
+</div>
+
+  <!-- expressions -->
+
+  <div class="col-md-6 px-3 my-5
+ ">
+ <h3>Calculated Expressions</h3>
+    <div class="table-responsive h-50 my-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sl no</th>
+            <th>Expression</th>
+            <th>Result</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of expressions; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data?.expression}}</td>
+            <td>{{data?.result }}</td>
+            <td class="button-danger" (click)="deleteExpression(data?._id)">Delete</td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div>
+
+</div>
